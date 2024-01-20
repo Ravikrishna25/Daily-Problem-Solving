@@ -1,0 +1,71 @@
+1. Given a sorted array of size N and an integer K, find the position(0-based indexing) at which K is present in the array using binary search.
+
+
+class Solution {
+    int binarysearch(int arr[], int n, int k) {
+        // code here
+        for(int i=0;i<n;i++){
+            if(arr[i]==k){
+                return i;
+            }
+        }
+        return -1;
+    }
+}
+
+2.Given two arrays A and B of equal size N, the task is to find if given arrays are equal or not. Two arrays are said to be equal if both of them contain same set of elements, arrangements (or permutation) of elements may be different though.
+Note : If there are repetitions, then counts of repeated elements must also be same for two array to be equal.
+
+
+
+class Solution{
+    //Function to check if two arrays are equal or not.
+    public static boolean check(long A[],long B[],int N)
+    {
+        //Your code here
+        Arrays.sort(A);
+        Arrays.sort(B);
+        int c=0;
+        for(int i=0;i<N;i++){
+            if(A[i]==B[i]){
+                c++;
+            }
+        }
+        if(c==N){
+            return true;
+        }else{
+            return false;
+        }
+    }
+}
+
+3.
+
+Given an array of positive integers nums, return an array answer that consists of the digits of each integer in nums after separating them in the same order they appear in nums.
+
+To separate the digits of an integer is to get all the digits it has in the same order.
+
+For example, for the integer 10921, the separation of its digits is [1,0,9,2,1].
+
+
+ANS:
+
+class Solution {
+    public int[] separateDigits(int[] nums) {
+        ArrayList<Integer> al = new ArrayList<>();
+            // traversal on the array
+            for(int i = 0; i< nums.length; i ++) {
+                    // initialize an string and add with array element
+                    String s = nums[i]+ "";
+                    // now traversal on the string 
+                    // after that add in array list and parseint
+                    for(int j = 0; j< s.length(); j ++) al.add(Integer.parseInt(s.charAt(j)+""));
+            }
+            // initialize the new answer array size of arraylist
+            int ans[] = new int[al.size()];
+            // now traversal on the arraylist and put all element in the answer array
+            for(int i = 0; i< al.size(); i++) ans[i] = al.get(i);
+            
+            return ans;
+    }
+}
