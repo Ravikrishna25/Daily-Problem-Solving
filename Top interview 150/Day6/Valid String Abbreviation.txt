@@ -1,0 +1,48 @@
+Array of size n is given and a abrreviated value is also passed find the valid abbreviation value matched to the string array.
+
+INPUT:
+4
+hello Good Morning
+World Health Organisation
+World Human Chain
+World War Two
+
+WHO
+
+OUTPUT:
+world Health Organisation
+
+
+SOLUTION:
+
+import java.util.*;
+class Main
+{
+	public static void main(String[] args)
+	{
+		Scanner s = new Scanner(System.in);
+		int n = s.nextInt();
+		s.nextLine();
+		String str[] = new String[n];
+		for(int i=0;i<n;i++)
+		{
+			str[i] = s.nextLine();
+			
+		}
+		String ab= s.nextLine();
+		for(int i=0;i<n;i++)
+		{
+			String res="";
+			String s1[] = str[i].split(" ");
+			for(String m:s1)
+			{
+				res+=m.charAt(0);
+			}
+			if(ab.equals(res))
+			{
+				System.out.print(str[i]);
+				break;
+			}
+		}
+	}
+}
